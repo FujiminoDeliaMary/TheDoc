@@ -3,5 +3,8 @@ import Dashboard from './Pages/DashboardPage.vue'
 </script>
 
 <template>
-  <Dashboard />
+  <NavBar></NavBar>
+    <RouterView >
+      
+    </RouterView>
 </template>
