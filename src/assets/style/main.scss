@@ -1,6 +1,8 @@
 $bleu : #20295A;
 $violet : #463AA1;
-
+body{
+    background-color: (245, 245, 250, 1)
+}
 
 .nav{
     border-top-right-radius: 15px;
@@ -212,15 +214,7 @@ $gris:#E5E5E580;
     float: right;
   }
   
-  /*
-   * The following styles are auto-applied to elements with
-   * transition="modal" when their visibility is toggled
-   * by Vue.js.
-   *
-   * You can easily play with the modal transition by editing
-   * these styles.
-   */
-  
+
   .modal-enter {
     opacity: 0;
   }
@@ -252,5 +246,14 @@ $gris:#E5E5E580;
      
         
     }
+  }
+
+
+  .image-health{
+    box-sizing: border-box;
+    width: 7rem;
+    border-radius: 6px;
+    background-color: rgba(32, 41, 90, 1);
+  
   }
   

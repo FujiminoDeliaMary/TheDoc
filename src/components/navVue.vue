@@ -8,7 +8,7 @@
             <ul class="nav__list">
                
                     <li>
-                        <RouterLink to="/">
+                        <RouterLink to="/dashboard">
                             <div className="name">
                                 <p><img src="../assets/images/health.png" alt=""></p>
                                 <h1 >ledoc</h1>
@@ -18,7 +18,7 @@
               
          
                     <li>
-                        <RouterLink  to="/">
+                        <RouterLink  to="/dashboard">
                             <p>
                                 <img src="../assets/images/dashboardIcon.svg" alt=""/>
                             </p>
@@ -45,7 +45,7 @@
             
   
                     <li class="nav__setting">
-                        <div class="flex gap-3">
+                        <div class="flex flex-col gap-3 self-end">
                             <p><img src="../assets/images/paramIcon.svg" alt="Paramètres"/></p>
                             <p><img src="../assets/images/Turn off.svg" alt="Se déconnecter"></p>
                         </div>

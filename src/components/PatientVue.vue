@@ -153,10 +153,10 @@ import { formatDate } from '@/composables/format';
                     </thead>
                     <tbody>
                         <tr v-for="document in patient.attributes.documents.data" :key="document" class="border-b dark:border-neutral-500">
-                            <td> {{ document.attributes.name }} </td>
-                            <td>{{ document.attributes.mime.split('/')[1] }}</td>
-                            <td> {{ formatDate(document.attributes.createdAt) }} </td>
-                            <td><img src="../assets/images/EyeeyeIcon.png" alt="voir plus" ></td>
+                            <td class="py-2"> {{ document.attributes.name }} </td>
+                            <td class="py-2">{{ document.attributes.mime.split('/')[1] }}</td>
+                            <td class="py-2"> {{ formatDate(document.attributes.createdAt) }} </td>
+                            <td class="py-2"> <a :href= document.attributes.url  download="document"><img src="../assets/images/download.svg" alt="voir plus" ></a></td>
                         </tr>
                     </tbody>
                 </table>

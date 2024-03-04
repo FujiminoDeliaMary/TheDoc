@@ -36,7 +36,7 @@ onMounted(async () => {
     try {
     
         visitsPatientsName.value= await filter.getAllNames();
-    
+        console.log(visitsPatientsName);
 
         visitsList.value = await api.visitsList();
         visits.value = [...visitsList.value]
@@ -133,8 +133,8 @@ watch(search, () => {
                            </select>
                            <select name="lieu" v-model="filteredName" @change="handleFilterName">
                                 <option value="">Nom</option>
-                                <option v-for="visit in visitsList" :key="visit" :value="visit.attributes.patient.data.attributes.firstname + ' ' + visit.attributes.patient.data.attributes.lastname">
-                                    {{ visit.attributes.patient.data.attributes.firstname + ' ' + visit.attributes.patient.data.attributes.lastname }}
+                                <option v-for="visit in visitsPatientsName?.data" :key="visit" :value="visit.attributes.firstname + ' ' + visit.attributes.lastname">
+                                    {{ visit.attributes.firstname + ' ' + visit.attributes.lastname }}
                                 </option>
                                
                            </select>

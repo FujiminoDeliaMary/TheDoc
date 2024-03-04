@@ -12,6 +12,8 @@ onMounted(async () => {
       
         const data = await api.patientsList();
         const dataOftheDay = await filter.getAllVisitsOfToday();
+        const allDates = await filter.getAllDates();
+        console.log(allDates)
         console.log(dataOftheDay)
         patients.value = data.data;
 
