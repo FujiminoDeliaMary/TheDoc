@@ -3,14 +3,18 @@
     import { formatDate } from '@/composables/format';
     import api from '../services/api.service';
     import { onMounted, ref } from 'vue';
-const patients = ref();
-    
+    import filter from '@/services/filter.service';
+    const patients = ref();
+    const patientOfTheDay = ref();
 
 onMounted(async () => {
     try {
       
         const data = await api.patientsList();
-        patients.value = data.data; 
+        const dataOftheDay = await filter.getAllVisitsOfToday();
+        console.log(dataOftheDay)
+        patients.value = data.data;
+
         console.log(patients.value);
     } catch (error) {
         console.error('Erreur lors du chargement des patients:', error);
@@ -56,7 +60,7 @@ onMounted(async () => {
                 <article class="visits__actions">
                     
                     <RouterLink to="/createPatient"><p class="visits__action">Créer un patient</p></RouterLink>
-                    <p class="visits__action">Créer un rendez-vous</p>
+                    <RouterLink to="/visits"><p class="visits__action">Créer un rendez-vous</p></RouterLink>
                 </article>
             </section>
 

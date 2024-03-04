@@ -45,7 +45,11 @@
             
   
                     <li class="nav__setting">
-                        <p><img src="../assets/images/paramIcon.svg" alt=""/></p>
+                        <div class="flex gap-3">
+                            <p><img src="../assets/images/paramIcon.svg" alt="Paramètres"/></p>
+                            <p><img src="../assets/images/Turn off.svg" alt="Se déconnecter"></p>
+                        </div>
+                        
                     </li>
         
             </ul>

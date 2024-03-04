@@ -78,6 +78,29 @@ const apiPost = {
             console.error('Error modifying patient:', error.message);
             throw error;
         }
+    },
+
+    postVisit : async(form) => {
+     
+
+        try{
+            fetch('http://localhost:1337/api/visits', {
+                method:"POST",
+                body: JSON.stringify(form),
+                headers:{
+                    "Content-Type": "application/json",
+                }
+            })
+                .then(response => {
+                    if(!response.ok){
+                        throw new Error('Erreur lors de l\'ajout de la visite')
+                    }
+                })
+                .then(data => {return data})
+        }catch(error){
+            console.error('Error adding Visit:', error.message);
+            throw error;
+        }
     }
 }
 
