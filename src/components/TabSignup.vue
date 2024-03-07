@@ -68,12 +68,12 @@ import { ref } from 'vue';
             if (Object.keys(formErrors.value).length > 0) {
             console.log('Des erreurs ont été trouvées', formErrors.value);
             } else {
-            for (const key in formValidator.value) {
-                if (key !== 'confirmPassword') {
-                    form.value[key] = formValidator.value[key];
+                for (const key in formValidator.value) {
+                    if (key !== 'confirmPassword') {
+                        form.value[key] = formValidator.value[key];
+                    }
                 }
-            }
-            await signUp(form);
+                await signUp(form);
         }
          
         }catch(error){
@@ -116,6 +116,6 @@ import { ref } from 'vue';
             </div>
         </div>
 
-        <button type="submit" class=" rounded-sm bg-cyan-600">S'enregistrer</button>
+        <button type="submit" class=" rounded-sm bg-cyan-600 w-fit px-10 py-2 mx-auto rounded-s text-white">S'enregistrer</button>
     </form>
 </template>

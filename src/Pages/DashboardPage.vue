@@ -5,13 +5,14 @@
     import { onMounted, ref } from 'vue';
     import filter from '@/services/filter.service';
     const patients = ref();
+    const dataOftheDay = ref();
     const patientOfTheDay = ref();
 
 onMounted(async () => {
     try {
       
         const data = await api.patientsList();
-        const dataOftheDay = await filter.getAllVisitsOfToday();
+        dataOftheDay.value = await filter.getAllVisitsOfToday();
         const allDates = await filter.getAllDates();
         console.log(allDates)
         console.log(dataOftheDay)
@@ -36,26 +37,12 @@ onMounted(async () => {
             </h2>
             <section class="visits">
                 <article class="visits__list">
-                    <p class="visits__number bg-dark underline">3 Rendez-vous aujourd'hui</p>
-                    <div class="visit">
-                        <p class="visit__hour">9:00</p>
+                    <p class="visits__number bg-dark "> {{ dataOftheDay?.data.length }} Rendez-vous aujourd'hui</p>
+                    <div class="visit " v-for="visit in dataOftheDay?.data" :key="visit">
+                        <p class="visit__hour w-min">{{ new Date(visit.attributes?.date).getUTCHours() }}:00</p>
                         <div class="visit__info">
-                            <p class="visit__name">BRYANT Jean-Jacques</p>
-                            <p class="visit__dayinfo">Consultation vidéo</p>
-                        </div>
-                    </div>
-                    <div class="visit">
-                        <p class="visit__hour">9:00</p>
-                        <div class="visit__info">
-                            <p class="visit__name">BRYANT Jean-Jacques</p>
-                            <p class="visit__dayinfo">Consultation vidéo</p>
-                        </div>
-                    </div>
-                    <div class="visit">
-                        <p class="visit__hour">9:00</p>
-                        <div class="visit__info">
-                            <p class="visit__name">BRYANT Jean-Jacques</p>
-                            <p class="visit__dayinfo">Consultation vidéo</p>
+                            <p class="visit__name">{{ visit?.patient?.data?.id+ ' ' + visit?.patient?.data?.attributes.lastname}}</p>
+                            <p class="visit__dayinfo">{{visit.attributes?.note}}</p>
                         </div>
                     </div>
                 </article>

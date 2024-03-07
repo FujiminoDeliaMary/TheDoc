@@ -48,10 +48,9 @@ const api = {
                 throw new Error('Erreur détectée');
             }
             const visitsData = await response.json();
-            console.log(visitsData);
-         
+        
             const visitsWithPatientInfo = await Promise.all(visitsData.data.map(async (visit) => {
-                console.log(visit);
+              
                 const patientResponse = await fetch(`http://localhost:1337/api/patients/${visit.attributes.patient.data.id}?populate=*`);
                 if (!patientResponse.ok) {
                     throw new Error('Erreur lors de la récupération des informations du patient');

@@ -18,15 +18,19 @@ const filter = {
 
     getAllVisitsOfToday : async() => {
 
-        const today = new Date();
-        const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
-        const dateString = `${year}-${month}-${day}`;
-        console.log(dateString)
+        const startDate = new Date();
+        startDate.setHours(0, 0, 0, 0); // Réglez l'heure à 00:00:00:000
 
-        try{
-            const response = await fetch(`http://localhost:1337/api/visits?filters[date][$gte]=${dateString}&filters[date][$lt]=${dateString}`);
+        // Obtenir la date d'aujourd'hui à 23h59
+        const endDate = new Date();
+        endDate.setHours(23, 59, 59, 999); // Réglez l'heure à 23:59:59:999
+
+        console.log(startDate); // Affiche la date d'aujourd'hui à minuit
+        console.log(endDate.toISOString());
+
+    
+        try{    
+            const response = await fetch(`http://localhost:1337/api/visits?filters[date][$gte]=${startDate.toISOString()}&filters[date][$lte]=${endDate.toISOString()}&populate=*`);
 
             if (!response.ok){
                 throw new Error('Erreur lors de la récupérations des visites')
@@ -44,7 +48,7 @@ const filter = {
             const response = await fetch(`http://localhost:1337/api/visits?fields=date`);
 
             if (!response.ok){
-                throw new Error('Erreur lors de la récupérations des dates')
+                throw new Error('Erreur :')
             }
             const responseData = await response.json();
             return responseData;
