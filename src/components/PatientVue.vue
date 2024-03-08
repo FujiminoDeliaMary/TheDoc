@@ -151,13 +151,16 @@ import { formatDate } from '@/composables/format';
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody v-if="patient?.attributes?.documents?.data?.length > 0">
                         <tr v-for="document in patient.attributes.documents.data" :key="document" class="border-b dark:border-neutral-500">
                             <td class="py-2"> {{ document.attributes.name }} </td>
                             <td class="py-2">{{ document.attributes.mime.split('/')[1] }}</td>
                             <td class="py-2"> {{ formatDate(document.attributes.createdAt) }} </td>
-                            <td class="py-2"> <a :href= document.attributes.url  download="document"><img src="../assets/images/download.svg" alt="voir plus" ></a></td>
+                            <td class="py-2"> <a :href= "`http://localhost:1337${document.attributes.url}`" target="_blank"  download="document.pdf"><img src="../assets/images/download.svg" alt="voir plus" ></a></td>
                         </tr>
+                    </tbody>
+                    <tbody v-else>
+                        <td colspan="3">Aucun Document pour l'instant</td>
                     </tbody>
                 </table>
 
@@ -170,12 +173,15 @@ import { formatDate } from '@/composables/format';
                             <th>Durée</th>
                         </tr>
                     </thead>
-                    <tbody>²
+                    <tbody v-if="patient?.attributes?.treatments?.length > 0">
                         <tr class="border-b dark:border-neutral-500" v-for="treatment in patient.attributes.treatments" :key="treatment">
                             <td>{{ treatment.drug }}</td>
                             <td>{{ treatment.repeats }}</td>
                             <td>{{ treatment.days }}</td>
                         </tr>
+                    </tbody>
+                    <tbody v-else class="flex justify-center items-center text-center">
+                        <td colspan="3" class="flex justify-center items-center text-center">Aucun traitement pour l'instant</td>
                     </tbody>
                 </table>
 
@@ -188,7 +194,7 @@ import { formatDate } from '@/composables/format';
                             <th>Lieu</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody v-if="patient?.attributes?.visits?.data?.length > 0">
                         <tr class="border-b dark:border-neutral-500" v-for="visit in patient.attributes.visits.data" :key="visit" >
                             <td>{{ formatDate(visit.attributes.date) }}</td>
                             <td>{{ visit.attributes.note }}</td>
@@ -197,6 +203,9 @@ import { formatDate } from '@/composables/format';
                                 <img v-else src="../assets//images/health.png"/>
                             </td>
                         </tr>
+                    </tbody>
+                    <tbody v-else>
+                        <td colspan="3" class="flex justify-center items-center">Aucun rendez-vous pour l'instant</td>
                     </tbody>
                 </table>
             </section>

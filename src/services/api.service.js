@@ -66,6 +66,22 @@ const api = {
             console.error(error);
             throw error;
         }
+    },
+
+    getOneVisit : async(id) => {
+        try{
+            const response = await fetch(`http://localhost:1337/api/visits/${id}?populate=*`);
+            if (!response.ok){
+                throw new Error('Erreur détectée')
+            }
+            const visitData = await response.json();
+            
+            return visitData
+        }catch(error) {
+
+            console.error(error);
+            throw error;
+        }
     }
 }
 

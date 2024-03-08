@@ -58,6 +58,42 @@ const filter = {
         }
     },
 
+    getPatientsByBloodGroup : async(bloodgroup) => {
+        try{
+            console.log(bloodgroup);
+            const response = await fetch(`http://localhost:1337/api/patients?filters[bloodgroup][$eq]=${bloodgroup}`)
+            if (!response.ok){
+                throw new Error('Erreur :')
+            }
+            const responseData = await response.json();
+            console.log(responseData)
+            return responseData;
+           
+        }catch(error) {
+            console.error('Erreur lors de la récupération des Patients', error.message)
+            throw error;
+        }
+    },
+
+    getLastPatients : async() => {
+        
+        const startDate = new Date();
+        const today = startDate.toISOString()
+
+   
+        try{
+            const response = await fetch(`http://localhost:1337/api/visits?filters[date][$lte]=${today}&populate=*`);
+            if (!response.ok){
+                throw new Error('Erreur')
+            }
+            const visitsData = await response.json();
+            console.log(visitsData)
+            return visitsData.data.sort((a, b) => a.attributes.date - b.attributes.date).slice(0,4);
+        }catch(error) {
+            console.error('Erreur lors de la récupération des Patients', error.message)
+            throw error;
+        }
+    }
     // getAllVisitsofOneDate : async() => {
 
     // }

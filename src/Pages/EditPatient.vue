@@ -81,7 +81,7 @@ onMounted(async () => {
 <template>
     <div class="body">
         <navVue />
-        <main class="dashboard flex">
+        <main class="dashboard flex" v-if="patient">
             <section class="personnalsInfo">
                 
                 <form class="flex-inline flex-col gap-10" @submit.prevent="handleSubmit">
@@ -111,7 +111,7 @@ onMounted(async () => {
                     </div>
 
                     <div class="inline-flex flex-col">
-                        <label>Groupe SAnguin</label>
+                        <label>Groupe Sanguin</label>
                         <select placeholder="Groupe sanguin " v-model="patientTemplate.data.bloodgroup" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option value="A négatif">A négatif</option>
                             <option value="B négatif">B négatif</option>
@@ -122,6 +122,18 @@ onMounted(async () => {
                             <option value="O positif">O négatif</option>
                         </select><br>
                     </div>
+                    <div>
+                        <label>Street</label>
+                        <input type="text" v-model="patientTemplate.data.address.street" required class="block w-full p-2 rounded-lg bg-gray-50 sm:text-s dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 border border-gray-300"/>
+                    </div>
+                    <div>
+                        <label>City</label>
+                        <input type="text" v-model="patientTemplate.data.address.city" required class="block w-full p-2 rounded-lg bg-gray-50 sm:text-s dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 border border-gray-300"/>
+                    </div>
+                    <div>
+                            <label>zipcode</label>
+                            <input type="text" v-model="patientTemplate.data.address.zipcode" required class="block w-full p-2 rounded-lg bg-gray-50 sm:text-s dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 border border-gray-300"/>
+                        </div>
                     <div>
                         <label>Saisissez le N de sécurité social</label>
                         <input type="number" v-model="patientTemplate.data.social_number" required class="block w-full p-2 rounded-lg bg-gray-50 sm:text-s dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 border border-gray-300"/>

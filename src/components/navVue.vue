@@ -22,7 +22,7 @@
 </script>
 
 <template>
-          <nav class="nav" @click="openNav=!openNav" :class="{'open': openNav}">
+          <nav class="nav" @click="openNav=!openNav" :class="{'open': !openNav}">
             <ul class="nav__list" >
                
                     <li>

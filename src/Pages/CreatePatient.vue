@@ -131,7 +131,7 @@ console.log('showModalDocument', showModalDocument.value);
                         </div>
 
                         <div class="inline-flex flex-col">
-                            <label>Groupe SAnguin</label>
+                            <label>Groupe Sanguin</label>
                             <select placeholder="Groupe sanguin " v-model="patient.data.bloodgroup" required class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option value="A négatif">A négatif</option>
                                 <option value="B négatif">B négatif</option>
@@ -147,6 +147,19 @@ console.log('showModalDocument', showModalDocument.value);
                             <input type="number" v-model="patient.data.social_number" required class="block w-full p-2 rounded-lg bg-gray-50 sm:text-s dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 border border-gray-300"/>
                           
                         </div>
+                        <div>
+                            <label>Street</label>
+                            <input type="text" v-model="patient.data.address.street" required class="block w-full p-2 rounded-lg bg-gray-50 sm:text-s dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 border border-gray-300"/>
+                        </div>
+                        <div>
+                            <label>City</label>
+                            <input type="text" v-model="patient.data.address.city" required class="block w-full p-2 rounded-lg bg-gray-50 sm:text-s dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 border border-gray-300"/>
+                        </div>
+                        <div>
+                            <label>zipcode</label>
+                            <input type="text" v-model="patient.data.address.zipcode" required class="block w-full p-2 rounded-lg bg-gray-50 sm:text-s dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 border border-gray-300"/>
+                        </div>
+                        
                  
                     </form>
                     <div class="notes px-3 py-2">
