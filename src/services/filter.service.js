@@ -88,7 +88,7 @@ const filter = {
             }
             const visitsData = await response.json();
             console.log(visitsData)
-            return visitsData.data.sort((a, b) => a.attributes.date - b.attributes.date).slice(0,4);
+            return visitsData.data.sort((a, b) => a.attributes.date - b.attributes.date).slice(0,7);
         }catch(error) {
             console.error('Erreur lors de la récupération des Patients', error.message)
             throw error;
