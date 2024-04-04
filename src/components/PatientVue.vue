@@ -99,8 +99,7 @@ import { formatDate } from '@/composables/format';
 
 
 <template>
-    <div >
-       
+ 
         <main class="dashboard flex" v-if="patient">
             <section class="personnalsInfo ">
                 <article class="informations">
@@ -267,5 +266,5 @@ import { formatDate } from '@/composables/format';
                 </template>
             </TheModal>
         </main>
-    </div>
+
 </template>

@@ -66,8 +66,7 @@ const show = ref(false);
 </script>
 
 <template>
-      <div >
-          
+   
             <main class="dashboard">
               
                 <div class="options">
@@ -136,7 +135,7 @@ const show = ref(false);
                        
             </div>
             </main>
-        </div>
+       
       
 </template>
 

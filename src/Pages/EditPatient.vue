@@ -79,8 +79,7 @@ onMounted(async () => {
 
 
 <template>
-    <div >
-     
+
         <main class="dashboard flex" v-if="patient">
             <section class="personnalsInfo">
                 
@@ -258,5 +257,5 @@ onMounted(async () => {
             </template>
         </TheModal>
 
-    </div>  
+
 </template>

@@ -158,8 +158,7 @@ watch(search, () => {
 </script>
 
 <template>
-      <div >
-       
+ 
             <main class="dashboard">
               
                 <div class="options">
@@ -236,8 +235,7 @@ watch(search, () => {
                        
             </div>
             </main>
-        </div>
-
+    
         <TheModal :showModal="showModalAddVisit" >
             <template #header v-if="idVisitModified">
                 Modifier un rendez-vous

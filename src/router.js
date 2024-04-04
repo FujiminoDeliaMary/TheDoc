@@ -21,6 +21,7 @@ export const router = createRouter({
                 return { name: 'auth' }
             }
           },
+        meta: { showNav: true, bodyClass: 'body' },
         component: DashboardPageVue
         },
         {
@@ -31,6 +32,7 @@ export const router = createRouter({
                     return { name: 'auth' }
                 }
               },
+            meta: { showNav: true, bodyClass: 'body' },
             component: PatientsPageVue
         },
         {
@@ -41,6 +43,7 @@ export const router = createRouter({
                     return { name: 'auth' }
                 }
               },
+            meta: { showNav: true, bodyClass: 'body' },
             component: PatientPage
         },
         {
@@ -51,6 +54,7 @@ export const router = createRouter({
                     return { name: 'login' }
                 }
               },
+            meta: { showNav: true, bodyClass: 'body' },
             component: CreatePatientVue
         },
         {
@@ -61,6 +65,7 @@ export const router = createRouter({
                     return { name: 'login' }
                 }
               },
+            meta: { showNav: true, bodyClass: 'body' },
             component: EditPatientVue
         }, 
         {
@@ -71,11 +76,13 @@ export const router = createRouter({
                     return { name: 'login' }
                 }
               },
+            meta: { showNav: true, bodyClass: 'body' },
             component: VisitsPageVue
         },
         {
             path: '/',
             name: 'auth',
+            meta: { showNav: false, bodyClass: '' },
             component: AuthPageVue
         }
     ]

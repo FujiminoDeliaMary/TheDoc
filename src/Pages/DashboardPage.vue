@@ -31,7 +31,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div >
+
   
   
         <main class="dashboard">
@@ -95,7 +95,7 @@ onMounted(async () => {
             </div>
             
         </main>
-    </div>
+  
 </template>
 
 <style lang="scss">
