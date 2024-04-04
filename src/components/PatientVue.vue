@@ -99,8 +99,8 @@ import { formatDate } from '@/composables/format';
 
 
 <template>
-    <div class="body">
-        <navVue />
+    <div >
+       
         <main class="dashboard flex" v-if="patient">
             <section class="personnalsInfo ">
                 <article class="informations">

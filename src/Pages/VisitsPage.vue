@@ -158,8 +158,8 @@ watch(search, () => {
 </script>
 
 <template>
-      <div class="body">
-            <navVue />
+      <div >
+       
             <main class="dashboard">
               
                 <div class="options">

@@ -99,8 +99,8 @@ console.log('showModalDocument', showModalDocument.value);
 </script>
 
 <template>
-        <div class="body">
-            <NavVue />
+        <div >
+           
             <main class="dashboard flex">
                 <section class="personnalsInfo">
                     

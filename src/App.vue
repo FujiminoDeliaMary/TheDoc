@@ -1,10 +1,14 @@
 <script setup>
 import Dashboard from './Pages/DashboardPage.vue'
+import NavVue from './components/navVue.vue';
 </script>
 
 <template>
-  <!-- <NavBar></NavBar> -->
+  <div class="body">
+    <NavVue />
     <RouterView >
       
     </RouterView>
+  </div>
+
 </template>

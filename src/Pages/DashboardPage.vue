@@ -31,9 +31,9 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div class="body">
+    <div >
   
-        <navVue />
+  
         <main class="dashboard">
             <h2 className="dashboard__title">
                 Dashboard
